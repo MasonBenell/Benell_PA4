@@ -12,19 +12,20 @@ public class DuplicateRemover
 {
    private Set<String> uniqueWords;
    
-   
    public void remove(String dataFile) throws FileNotFoundException
    {
-       String temp;
+	   Scanner in = new Scanner(new File(dataFile));
+	   
        uniqueWords = new HashSet<String>();
-       Scanner in = new Scanner(new File(dataFile));
+       
+       String temp;
+       
        while(in.hasNext())
        {
-           temp=in.next();
+           temp = in.next();
            
            uniqueWords.add(temp);
        }
-       
        in.close();  
    }
   
@@ -32,19 +33,19 @@ public class DuplicateRemover
    public void Write(String outputFile) throws IOException
    {
 	   File text;
+	   text = new File(outputFile);
+	   
 	   FileWriter textWrite = null;
 	   
-	   text = new File(outputFile);
-
 	   if(text.exists()) 
 	   {
 		   textWrite = new FileWriter(text, true);
-		   Iterator check=uniqueWords.iterator();
+		   Iterator check = uniqueWords.iterator();
 
 		   while(check.hasNext() == true)
 		   {
-			   String str=(String)check.next();
-			   textWrite.write(str+"\n");     
+			   String str = (String)check.next();
+			   textWrite.write(str + "\n");     
 		   }
 		   
 		   textWrite.close();
@@ -53,15 +54,15 @@ public class DuplicateRemover
 	   else
 	   {
 		   textWrite = new FileWriter(text, true);
-		   Iterator check=uniqueWords.iterator();
+		   Iterator check = uniqueWords.iterator();
 
 		   while(check.hasNext())
 		   {
-			   String str=(String)check.next();
-			   textWrite.write(str+"\n");     
+			   String str = (String)check.next();
+			   textWrite.write(str + "\n");     
 		   }
 		   
 		   textWrite.close();
 	   }
-   	}
+   	}  
 }
