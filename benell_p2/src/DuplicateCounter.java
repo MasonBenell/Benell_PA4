@@ -3,26 +3,24 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.util.HashSet;
 import java.util.HashMap;
 import java.util.Map.Entry;
-import java.util.Iterator;
-import java.util.Set;
 import java.util.*;
 
 
 public class DuplicateCounter 
 {
 
-	HashMap<String, Integer> unique_word_counts = new HashMap<String, Integer>();
+	private Map<String,Integer> unique_word_counts;
 
 	public void count(String dataFile) throws FileNotFoundException
 	{
+		Scanner in = new Scanner(new File(dataFile));
+		
 		String temp;
 
 		unique_word_counts = new HashMap<String,Integer>();
 
-		Scanner in = new Scanner(new File(dataFile));
 
 		while(in.hasNext())
 		{
