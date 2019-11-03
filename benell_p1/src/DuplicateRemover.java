@@ -14,7 +14,7 @@ public class DuplicateRemover
    
    public void remove(String dataFile) throws FileNotFoundException
    {
-	   Scanner in = new Scanner(new File(dataFile));
+	Scanner in = new Scanner(new File(dataFile));
 	   
        uniqueWords = new HashSet<String>();
        
